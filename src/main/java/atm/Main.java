@@ -1,12 +1,22 @@
 package atm;
 
-public class Main {
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class  Main {
     public static void main(String[] args) {
-        DataSourceDB dataSourceDB = new DataSourceDB();
-        DataSourceFile dataSourceFile = new DataSourceFile("customers.txt");
-        Bank bank = new Bank("My Bank", dataSourceFile);
-        ATM atm = new ATM(bank);
-        AtmUI atmUI = new AtmUI(atm);
+//        DataSourceDB dataSourceDB = new DataSourceDB();
+//        DataSourceFile dataSourceFile = new DataSourceFile("customers.txt");
+//        Bank bank = new Bank("My Bank", dataSourceFile);
+//        ATM atm = new ATM(bank);
+//        AtmUI atmUI = new AtmUI(atm);
+//        atmUI.run();
+
+        ApplicationContext context =
+                new AnnotationConfigApplicationContext(ATMConfing.class);
+        AtmUI atmUI = context.getBean(AtmUI.class);
         atmUI.run();
+
+
     }
 }
