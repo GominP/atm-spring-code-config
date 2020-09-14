@@ -8,7 +8,7 @@ public class ATMConfing {
 
     @Bean
     public DataSource dataSource(){
-        return new DataSourceDB();
+        return new DataSourceFile("customers.txt");
     }
 
     @Bean
